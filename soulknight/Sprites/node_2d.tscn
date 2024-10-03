@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtg4a8jwpv7bn"]
+
+[ext_resource type="Script" path="res://Sprites/character_body_2d.gd" id="1_4q7tb"]
+[ext_resource type="Texture2D" uid="uid://cxq65004m82ek" path="res://PJ2 (2).png" id="1_8tjjh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5l4q"]
+atlas = ExtResource("1_8tjjh")
+region = Rect2(0, 25, 75, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhdux"]
+atlas = ExtResource("1_8tjjh")
+region = Rect2(75, 25, 75, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5oh1"]
+atlas = ExtResource("1_8tjjh")
+region = Rect2(225, 25, 75, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5jlt"]
+atlas = ExtResource("1_8tjjh")
+region = Rect2(0, 25, 75, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d37jx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5l4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhdux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5oh1")
+}],
+"loop": true,
+"name": &"Inactividad_1",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5jlt")
+}],
+"loop": true,
+"name": &"Movimiento",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_cw63w"]
+resource_name = "Inactividad"
+length = 5.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0yq4t"]
+_data = {
+"Inactividad": SubResource("Animation_cw63w")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(172, 93)
+scale = Vector2(1.38488, 1.07952)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(172, 93)
+scale = Vector2(0.535685, 0.55771)
+script = ExtResource("1_4q7tb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(2.58524, 1.93562)
+sprite_frames = SubResource("SpriteFrames_d37jx")
+animation = &"Inactividad_1"
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0yq4t")
+}
