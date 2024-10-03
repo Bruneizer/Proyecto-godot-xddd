@@ -31,5 +31,3 @@ func _process(_delta: float) -> void:
 		# Si no hay movimiento, reproducir la animación "inactividad"
 		if !$AnimatedSprite2D.is_playing() or $AnimatedSprite2D.animation != "inactividad":
 			$AnimatedSprite2D.play("inactividad")
-			
-			
