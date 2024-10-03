@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Velocidad de movimiento
-var speed: float = 200.0
+var speed: float = 500.0
 
 func get_input_direction() -> Vector2:
 	var input_direction = Vector2()
@@ -31,3 +31,5 @@ func _process(_delta: float) -> void:
 		# Si no hay movimiento, reproducir la animación "inactividad"
 		if !$AnimatedSprite2D.is_playing() or $AnimatedSprite2D.animation != "inactividad":
 			$AnimatedSprite2D.play("inactividad")
+			
+			
