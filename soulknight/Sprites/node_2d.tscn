@@ -1,51 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtg4a8jwpv7bn"]
+[gd_scene load_steps=4 format=3 uid="uid://dtg4a8jwpv7bn"]
 
 [ext_resource type="Script" path="res://Sprites/character_body_2d.gd" id="1_4q7tb"]
-[ext_resource type="Texture2D" uid="uid://cxq65004m82ek" path="res://PJ2 (2).png" id="1_8tjjh"]
 [ext_resource type="Texture2D" uid="uid://doluf3ic8tb10" path="res://Sprites/SoloPJ2.png" id="2_vehhg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5l4q"]
-atlas = ExtResource("1_8tjjh")
-region = Rect2(0, 25, 75, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhdux"]
-atlas = ExtResource("1_8tjjh")
-region = Rect2(75, 25, 75, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g5oh1"]
-atlas = ExtResource("1_8tjjh")
-region = Rect2(225, 25, 75, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o5jlt"]
-atlas = ExtResource("1_8tjjh")
-region = Rect2(0, 25, 75, 25)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_d37jx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l5l4q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nhdux")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g5oh1")
-}],
-"loop": true,
-"name": &"Inactividad_1",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o5jlt")
-}],
-"loop": true,
-"name": &"Movimiento",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_y3hi1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgndk"]
+size = Vector2(104.539, 129.099)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(72, 56)
@@ -55,23 +14,15 @@ position = Vector2(14, 23)
 scale = Vector2(0.535685, 0.55771)
 script = ExtResource("1_4q7tb")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(-291.216, 71.7219)
-scale = Vector2(9.134, 6.841)
-sprite_frames = SubResource("SpriteFrames_d37jx")
-animation = &"Inactividad_1"
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-3.73355, 46.6192)
+scale = Vector2(7.46708, 5.59251)
+texture = ExtResource("2_vehhg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-48.536, -28.6888)
+shape = SubResource("RectangleShape2D_jgndk")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-26.1348, -41.2401)
 scale = Vector2(1.86677, 1.79305)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-scale = Vector2(1, 1)
-shape = SubResource("CircleShape2D_y3hi1")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(294.949, 125.513)
-scale = Vector2(7.46708, 5.59251)
-texture = ExtResource("2_vehhg")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D/Sprite2D"]
