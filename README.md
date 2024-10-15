@@ -1,4 +1,4 @@
-# Hola profe aca te dejo lo necesario para que puedas ejecutar el programa
+# Hola aca esta lo necesario para que puedas ejecutar el programa
 ##    Paso 1: Clonar este repositorio
 ##  **Paso 2**: Instalar Godot(suponiendo que tienes windows): 
 ´´
