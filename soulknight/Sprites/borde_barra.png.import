@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxq65004m82ek"
-path="res://.godot/imported/PJ2 (2).png-0eeff2baeec9e6b937c210582abd237f.ctex"
+uid="uid://nks1b1chtel3"
+path="res://.godot/imported/borde_barra.png-b5154832ad7627299487cd6f326ae80d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PJ2 (2).png"
-dest_files=["res://.godot/imported/PJ2 (2).png-0eeff2baeec9e6b937c210582abd237f.ctex"]
+source_file="res://Sprites/borde_barra.png"
+dest_files=["res://.godot/imported/borde_barra.png-b5154832ad7627299487cd6f326ae80d.ctex"]
 
 [params]
 

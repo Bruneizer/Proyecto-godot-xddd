@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://ckkctg47nio7c"]
+[gd_scene load_steps=11 format=4 uid="uid://ckkctg47nio7c"]
 
 [ext_resource type="Texture2D" uid="uid://ye4op8mtwvd4" path="res://tiles/Dungeon_Tileset.png" id="1_1xwqc"]
 [ext_resource type="PackedScene" uid="uid://dtg4a8jwpv7bn" path="res://Sprites/node_2d.tscn" id="2_bsdsy"]
 [ext_resource type="Texture2D" uid="uid://mxxbk5gcw3vk" path="res://tiles/demonstration.png" id="2_lgqlh"]
 [ext_resource type="Texture2D" uid="uid://b05cgq7xo4jdk" path="res://tiles/full tilemap.png" id="3_nps43"]
 [ext_resource type="PackedScene" uid="uid://4yi0qvq4of87" path="res://Enemigos/enemigo.tscn" id="5_2u22d"]
+[ext_resource type="PackedScene" uid="uid://dq3s5fkm15fc0" path="res://BarraSalud/BarraSalud.tscn" id="6_1jisa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itp2v"]
 texture = ExtResource("1_1xwqc")
@@ -402,7 +403,7 @@ sources/0 = SubResource("TileSetAtlasSource_itp2v")
 sources/1 = SubResource("TileSetAtlasSource_pthi7")
 sources/2 = SubResource("TileSetAtlasSource_twdp1")
 
-[node name="Player_Map" type="Node2D"]
+[node name="Main" type="Node2D"]
 position = Vector2(290, -115)
 metadata/_edit_horizontal_guides_ = [-62.0]
 
@@ -425,3 +426,5 @@ position = Vector2(281, 108)
 
 [node name="Esqueleto" parent="." instance=ExtResource("5_2u22d")]
 position = Vector2(570, 91)
+
+[node name="BarraSalud" parent="." instance=ExtResource("6_1jisa")]
