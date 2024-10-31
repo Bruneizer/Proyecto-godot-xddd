@@ -38,3 +38,6 @@ func recibir_dano(dano: int):
 	# Aquí puedes añadir lógica para manejar la muerte del héroe
 	if salud <= 0:
 		print("El héroe ha caído!")
+		
+		
+	

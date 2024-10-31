@@ -28,6 +28,12 @@ func _process(delta):
 		var direccion = (jugador_ref.global_position - global_position).normalized()
 		var distancia = jugador_ref.global_position.distance_to(global_position)
 		
+		# Cambiar dirección del esqueleto según la posición del héroe
+		if direccion.x < 0:
+			$AnimatedSprite2D.scale.x = -1  # Mirar a la izquierda
+		else:
+			$AnimatedSprite2D.scale.x = 1   # Mirar a la derecha
+
 		if distancia > attack_distance:
 			velocity = direccion * speed
 			move_and_slide()
@@ -37,4 +43,4 @@ func _process(delta):
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	# Verifica si el cuerpo que entró es el héroe
 	if body.name == "Heroe":  # Asegúrate de que el nombre sea correcto
-		body.recibir_dano(10)  # Llama al método para reducir la salud del héroe
+		body.recibir_dano(5)  # Llama al método para reducir la salud del héroe
