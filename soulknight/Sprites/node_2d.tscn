@@ -4,25 +4,25 @@
 [ext_resource type="Texture2D" uid="uid://doluf3ic8tb10" path="res://Sprites/SoloPJ2.png" id="2_vehhg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jgndk"]
-size = Vector2(104.539, 129.099)
+size = Vector2(70.9372, 109.376)
 
-[node name="Node2D" type="Node2D"]
+[node name="Heroe" type="Node2D"]
 position = Vector2(72, 56)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Heroe" type="CharacterBody2D" parent="."]
 position = Vector2(14, 23)
 scale = Vector2(0.535685, 0.55771)
 script = ExtResource("1_4q7tb")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Heroe"]
 position = Vector2(-3.73355, 46.6192)
 scale = Vector2(7.46708, 5.59251)
 texture = ExtResource("2_vehhg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-48.536, -28.6888)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Heroe"]
+position = Vector2(-44.8024, -27.7923)
 shape = SubResource("RectangleShape2D_jgndk")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Heroe"]
 position = Vector2(-26.1348, -41.2401)
 scale = Vector2(1.86677, 1.79305)

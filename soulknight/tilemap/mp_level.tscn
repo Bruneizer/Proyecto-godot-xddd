@@ -138,7 +138,9 @@ texture = ExtResource("2_136ei")
 4:3/0 = 0
 5:3/0 = 0
 6:3/0 = 0
+7:3/next_alternative_id = 2
 7:3/0 = 0
+7:3/1 = 1
 1:4/0 = 0
 2:4/0 = 0
 3:4/0 = 0
@@ -335,6 +337,7 @@ texture = ExtResource("2_136ei")
 9:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:15/0 = 0
 10:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_twdp1"]
 texture = ExtResource("3_2u3je")
@@ -401,6 +404,7 @@ sources/1 = SubResource("TileSetAtlasSource_pthi7")
 sources/2 = SubResource("TileSetAtlasSource_twdp1")
 
 [node name="MP_level" type="TileMap"]
+position = Vector2(4598, 39)
 scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_olxvs")
 format = 2
