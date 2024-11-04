@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://mxxbk5gcw3vk" path="res://tiles/demonstration.png" id="2_lgqlh"]
 [ext_resource type="Texture2D" uid="uid://b05cgq7xo4jdk" path="res://tiles/full tilemap.png" id="3_nps43"]
 [ext_resource type="PackedScene" uid="uid://4yi0qvq4of87" path="res://Enemigos/enemigo.tscn" id="5_2u22d"]
-[ext_resource type="PackedScene" uid="uid://dq3s5fkm15fc0" path="res://BarraSalud/BarraSalud.tscn" id="6_1jisa"]
+[ext_resource type="PackedScene" uid="uid://dskw4dv05afkd" path="res://Component/health_component.tscn" id="6_3wpd8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itp2v"]
 texture = ExtResource("1_1xwqc")
@@ -432,4 +432,4 @@ position = Vector2(570, 91)
 [node name="Esqueleto2" parent="." instance=ExtResource("5_2u22d")]
 position = Vector2(796, 116)
 
-[node name="BarraSalud" parent="." instance=ExtResource("6_1jisa")]
+[node name="HealthComponent" parent="." instance=ExtResource("6_3wpd8")]

@@ -1,6 +1,11 @@
-extends CharacterBody2D
+class_name Heroe extends CharacterBody2D
+var move_speed := 100
+var attack_damage := 50
+var is_attack := false
+@onready var health_component: Node2D = $Node/HealthComponent
 
-# Velocidad de movimiento
+
+#Velocidad de movimiento
 var speed: float = 500.0
 
 func get_input_direction() -> Vector2:
@@ -17,7 +22,7 @@ func get_input_direction() -> Vector2:
 		input_direction.x += 1
 
 	return input_direction.normalized()
-
+#
 func _process(_delta: float) -> void:
 	var direction = get_input_direction()
 
@@ -27,17 +32,12 @@ func _process(_delta: float) -> void:
 		move_and_slide()
 	else:
 		velocity = Vector2.ZERO
-# En el script del héroe
-# En el script del héroe
-var salud: int = 100  # Salud inicial
-
-func recibir_dano(dano: int):
-	salud -= dano
-	print("¡El héroe ha recibido daño! Salud restante: ", salud)
-
-	# Aquí puedes añadir lógica para manejar la muerte del héroe
-	if salud <= 0:
-		print("El héroe ha caído!")
-		
-		
-	
+#var salud: int = 100  # Salud inicial
+#
+#func recibir_dano(dano: int):
+	#salud -= dano
+	#print("¡El héroe ha recibido daño! Salud restante: ", salud)
+#
+	## Aquí puedes añadir lógica para manejar la muerte del héroe
+	#if salud <= 0:
+		#print("El héroe ha caído!")

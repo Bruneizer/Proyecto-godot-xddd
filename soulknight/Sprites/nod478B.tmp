@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtg4a8jwpv7bn"]
+[gd_scene load_steps=8 format=3 uid="uid://dtg4a8jwpv7bn"]
 
 [ext_resource type="Script" path="res://Sprites/character_body_2d.gd" id="1_4q7tb"]
 [ext_resource type="Texture2D" uid="uid://cxq65004m82ek" path="res://Sprites/PJ2 (2).png" id="2_ooxh4"]
-[ext_resource type="PackedScene" uid="uid://dskw4dv05afkd" path="res://Component/health_component.tscn" id="3_podgw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rg1j1"]
 atlas = ExtResource("2_ooxh4")
@@ -33,8 +32,8 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lu6aa"]
-radius = 41.9431
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgndk"]
+size = Vector2(57.8698, 125.513)
 
 [node name="Heroe" type="Node2D"]
 position = Vector2(72, 56)
@@ -49,24 +48,13 @@ scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_we251")
 animation = &"Movimiento"
 autoplay = "Movimiento"
-frame_progress = 0.669432
+frame_progress = 0.142135
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Heroe"]
-position = Vector2(-29.8683, -87.8593)
-shape = SubResource("CircleShape2D_lu6aa")
+position = Vector2(-32.6684, -73.5149)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jgndk")
 
 [node name="Camera2D" type="Camera2D" parent="Heroe"]
 position = Vector2(-26.1348, -41.2401)
 scale = Vector2(1.86677, 1.79305)
-
-[node name="Node" type="Node" parent="Heroe"]
-
-[node name="HealthComponent" parent="Heroe/Node" node_paths=PackedStringArray("progress_bar") instance=ExtResource("3_podgw")]
-progress_bar = NodePath("../../ProgressBar")
-
-[node name="ProgressBar" type="ProgressBar" parent="Heroe"]
-offset_left = -168.009
-offset_top = -197.235
-offset_right = 107.991
-offset_bottom = -153.235
-value = 70.0

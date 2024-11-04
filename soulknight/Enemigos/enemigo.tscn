@@ -1,16 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://4yi0qvq4of87"]
+[gd_scene load_steps=10 format=3 uid="uid://4yi0qvq4of87"]
 
 [ext_resource type="Texture2D" uid="uid://c0lbgs1alaucl" path="res://Sprites/skeleton2_v2_1.png" id="1_88vtv"]
 [ext_resource type="Script" path="res://Enemigos/Movimiento.gd" id="1_fl45u"]
 [ext_resource type="Texture2D" uid="uid://q5hwbjcpxlbj" path="res://Sprites/skeleton2_v2_2.png" id="2_dnpld"]
 [ext_resource type="Texture2D" uid="uid://drpgasdwjgbbo" path="res://Sprites/skeleton2_v2_3.png" id="3_o3avk"]
 [ext_resource type="Texture2D" uid="uid://cv7l0lbg2n63e" path="res://Sprites/skeleton2_v2_4.png" id="4_ks8f1"]
+[ext_resource type="PackedScene" uid="uid://dskw4dv05afkd" path="res://Component/health_component.tscn" id="6_o6yrj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ci0le"]
 size = Vector2(49, 62)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_5iww0"]
-radius = 33.0492
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mvxs4"]
 animations = [{
@@ -32,6 +30,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5iww0"]
+radius = 415.673
+
 [node name="Esqueleto" type="Node2D"]
 
 [node name="Esqueleto" type="CharacterBody2D" parent="."]
@@ -41,18 +42,32 @@ script = ExtResource("1_fl45u")
 position = Vector2(2.5, 13)
 shape = SubResource("RectangleShape2D_ci0le")
 
-[node name="Area2D" type="Area2D" parent="Esqueleto"]
-position = Vector2(2.5, 13)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Esqueleto/Area2D"]
-shape = SubResource("CircleShape2D_5iww0")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Esqueleto"]
 position = Vector2(7, 12)
 rotation = -6.28319
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_mvxs4")
 animation = &"moverse"
-frame_progress = 0.931254
+autoplay = "moverse"
+
+[node name="ProgressBar" type="ProgressBar" parent="Esqueleto"]
+offset_left = -86.0
+offset_top = -52.0
+offset_right = 126.0
+offset_bottom = -25.0
+value = 70.0
+
+[node name="Area2D" type="Area2D" parent="Esqueleto"]
+position = Vector2(2.5, 13)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Esqueleto/Area2D"]
+shape = SubResource("CircleShape2D_5iww0")
+debug_color = Color(0.898396, 0.251958, 0.721603, 0.419608)
+
+[node name="Node" type="Node" parent="Esqueleto"]
+
+[node name="HealthComponent" parent="Esqueleto/Node" node_paths=PackedStringArray("progress_bar") instance=ExtResource("6_o6yrj")]
+progress_bar = NodePath("../../ProgressBar")
 
 [connection signal="body_entered" from="Esqueleto/Area2D" to="Esqueleto" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Esqueleto/Area2D" to="Esqueleto" method="_on_area_2d_body_exited"]
