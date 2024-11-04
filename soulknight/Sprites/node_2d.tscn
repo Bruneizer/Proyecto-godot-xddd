@@ -1,9 +1,34 @@
-[gd_scene load_steps=21 format=3 uid="uid://dtg4a8jwpv7bn"]
+[gd_scene load_steps=28 format=3 uid="uid://dtg4a8jwpv7bn"]
 
 [ext_resource type="Script" path="res://Sprites/character_body_2d.gd" id="1_4q7tb"]
+[ext_resource type="Texture2D" uid="uid://dkj1epdv443ho" path="res://Sprites/Soldier-Attack01.png" id="2_4e2kq"]
 [ext_resource type="Texture2D" uid="uid://bpgdtk0q2xem7" path="res://Sprites/Soldier-Walk.png" id="2_ragos"]
 [ext_resource type="Texture2D" uid="uid://cl4266puftch5" path="res://Sprites/Soldier-Idle.png" id="3_ivt54"]
 [ext_resource type="PackedScene" uid="uid://dskw4dv05afkd" path="res://Component/health_component.tscn" id="3_podgw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blpmn"]
+atlas = ExtResource("2_4e2kq")
+region = Rect2(0, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hev4"]
+atlas = ExtResource("2_4e2kq")
+region = Rect2(100, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1vj3"]
+atlas = ExtResource("2_4e2kq")
+region = Rect2(200, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du7vr"]
+atlas = ExtResource("2_4e2kq")
+region = Rect2(300, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7mce"]
+atlas = ExtResource("2_4e2kq")
+region = Rect2(400, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n02ds"]
+atlas = ExtResource("2_4e2kq")
+region = Rect2(500, 33, 100, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_li8ji"]
 atlas = ExtResource("2_ragos")
@@ -63,6 +88,29 @@ region = Rect2(500, 33, 100, 33)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_we251"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blpmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hev4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1vj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_du7vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7mce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n02ds")
+}],
+"loop": true,
+"name": &"Atacar",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_li8ji")
@@ -132,6 +180,7 @@ scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_we251")
 animation = &"Caminar"
 autoplay = "Descanso"
+frame_progress = 0.153327
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Heroe"]
 position = Vector2(-4.6669, -10.7583)

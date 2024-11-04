@@ -1,9 +1,10 @@
 class_name Heroe
 extends CharacterBody2D
 
-var move_speed := 100
-var attack_damage := 50
-var is_attack := false
+var move_speed: float = 100
+var is_attacking: bool = false 
+var attack_duration: float = 0.5  # Duración de la animación de ataque
+var attack_timer: float = 0.0  # Temporizador para controlar el ataque
 
 @onready var health_component: Node2D = $Node/HealthComponent
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D  # Nodo de animación
@@ -14,7 +15,6 @@ var speed: float = 500.0
 func get_input_direction() -> Vector2:
 	var input_direction = Vector2()
 
-	# Detectar entradas de teclado
 	if Input.is_action_pressed("ui_up"):   # W
 		input_direction.y -= 1
 	if Input.is_action_pressed("ui_down"): # S
@@ -23,13 +23,21 @@ func get_input_direction() -> Vector2:
 		input_direction.x -= 1
 	if Input.is_action_pressed("ui_right"): # D
 		input_direction.x += 1
-
+	
 	return input_direction.normalized()
 
 func _physics_process(delta: float) -> void:
+	# Lógica de ataque
+	if is_attacking:
+		attack_timer -= delta  # Reduce el temporizador
+		if attack_timer <= 0:  # Si el temporizador llega a 0, permite otro ataque
+			is_attacking = false
+			# Reproduce la animación de descanso después del ataque
+			if animated_sprite_2d.animation != "Descanso":
+				animated_sprite_2d.play("Descanso")
+
 	var direction = get_input_direction()
 
-	# Movimiento
 	if direction != Vector2.ZERO:
 		velocity = direction * speed
 		move_and_slide()
@@ -44,5 +52,15 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = Vector2.ZERO
 		# Reproduce la animación de descanso si el personaje está quieto
-		if animated_sprite_2d.animation != "descanso":
-			animated_sprite_2d.play("descanso")
+		if animated_sprite_2d.animation != "Descanso" and not is_attacking:
+			animated_sprite_2d.play("Descanso")
+
+	# Lógica de ataque
+	if Input.is_action_just_pressed("atacar") and not is_attacking:
+		attack()
+
+func attack() -> void:
+	is_attacking = true  # Marca que el héroe está atacando
+	animated_sprite_2d.play("Atacar")  # Reproduce la animación de ataque
+	attack_timer = attack_duration  # Reinicia el temporizador del ataque
+	print("Atacando!")  # Imprimir para depuración
