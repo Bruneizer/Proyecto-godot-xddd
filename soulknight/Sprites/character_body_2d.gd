@@ -1,11 +1,14 @@
-class_name Heroe extends CharacterBody2D
+class_name Heroe
+extends CharacterBody2D
+
 var move_speed := 100
 var attack_damage := 50
 var is_attack := false
+
 @onready var health_component: Node2D = $Node/HealthComponent
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D  # Nodo de animación
 
-
-#Velocidad de movimiento
+# Velocidad de movimiento
 var speed: float = 500.0
 
 func get_input_direction() -> Vector2:
@@ -22,22 +25,24 @@ func get_input_direction() -> Vector2:
 		input_direction.x += 1
 
 	return input_direction.normalized()
-#
-func _process(_delta: float) -> void:
+
+func _physics_process(delta: float) -> void:
 	var direction = get_input_direction()
 
 	# Movimiento
 	if direction != Vector2.ZERO:
 		velocity = direction * speed
 		move_and_slide()
+		
+		# Reproduce la animación de caminar si el personaje se está moviendo
+		if animated_sprite_2d.animation != "Caminar":
+			animated_sprite_2d.play("Caminar")
+
+		# Orientar el sprite hacia la dirección de movimiento
+		if direction.x != 0:
+			animated_sprite_2d.flip_h = direction.x < 0  # Voltea hacia la izquierda si x es negativa
 	else:
 		velocity = Vector2.ZERO
-#var salud: int = 100  # Salud inicial
-#
-#func recibir_dano(dano: int):
-	#salud -= dano
-	#print("¡El héroe ha recibido daño! Salud restante: ", salud)
-#
-	## Aquí puedes añadir lógica para manejar la muerte del héroe
-	#if salud <= 0:
-		#print("El héroe ha caído!")
+		# Reproduce la animación de descanso si el personaje está quieto
+		if animated_sprite_2d.animation != "descanso":
+			animated_sprite_2d.play("descanso")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doluf3ic8tb10"
-path="res://.godot/imported/SoloPJ2.png-04b3d1385b105b521f084da5c2ce7e7c.ctex"
+uid="uid://cpw2uvmgo778e"
+path="res://.godot/imported/Orc-Walk.png-44a5eb1455a80fa169e8e6bbe04dc6ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SoloPJ2.png"
-dest_files=["res://.godot/imported/SoloPJ2.png-04b3d1385b105b521f084da5c2ce7e7c.ctex"]
+source_file="res://Sprites/Orc-Walk.png"
+dest_files=["res://.godot/imported/Orc-Walk.png-44a5eb1455a80fa169e8e6bbe04dc6ff.ctex"]
 
 [params]
 
