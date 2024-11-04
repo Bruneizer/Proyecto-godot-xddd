@@ -165,7 +165,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2y0bw"]
-size = Vector2(84.0046, 103.997)
+size = Vector2(80.2711, 105.79)
 
 [node name="Heroe" type="Node2D"]
 position = Vector2(72, 56)
@@ -180,10 +180,10 @@ scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_we251")
 animation = &"Caminar"
 autoplay = "Descanso"
-frame_progress = 0.153327
+frame_progress = 0.999652
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Heroe"]
-position = Vector2(-4.6669, -10.7583)
+position = Vector2(-7.46707, -10.7583)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2y0bw")
 

@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://4yi0qvq4of87"]
+[gd_scene load_steps=14 format=3 uid="uid://4yi0qvq4of87"]
 
 [ext_resource type="Script" path="res://Enemigos/Movimiento.gd" id="1_fl45u"]
 [ext_resource type="Texture2D" uid="uid://cpw2uvmgo778e" path="res://Sprites/Orc-Walk.png" id="2_dyxtk"]
 [ext_resource type="PackedScene" uid="uid://dskw4dv05afkd" path="res://Component/health_component.tscn" id="6_o6yrj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ci0le"]
-size = Vector2(55, 71)
+size = Vector2(49, 65)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7wb57"]
 atlas = ExtResource("2_dyxtk")
@@ -71,9 +71,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5iww0"]
-radius = 40.6079
-
 [node name="Esqueleto" type="Node2D"]
 position = Vector2(321, 193)
 
@@ -81,14 +78,8 @@ position = Vector2(321, 193)
 script = ExtResource("1_fl45u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Esqueleto"]
-position = Vector2(-2.5, 9.5)
+position = Vector2(2.5, 8.5)
 shape = SubResource("RectangleShape2D_ci0le")
-
-[node name="RayCast2D" type="RayCast2D" parent="Esqueleto/CollisionShape2D"]
-target_position = Vector2(-196, 0.5)
-
-[node name="RayCast2D2" type="RayCast2D" parent="Esqueleto/CollisionShape2D"]
-target_position = Vector2(238, 1.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Esqueleto"]
 position = Vector2(1, 11)
@@ -97,7 +88,7 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_mvxs4")
 animation = &"moverse"
 autoplay = "moverse"
-frame_progress = 0.0498329
+frame_progress = 0.223986
 
 [node name="ProgressBar" type="ProgressBar" parent="Esqueleto"]
 offset_left = -104.0
@@ -107,19 +98,8 @@ offset_bottom = -38.0
 value = 70.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Area2D" type="Area2D" parent="Esqueleto"]
-position = Vector2(2.5, 13)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Esqueleto/Area2D"]
-position = Vector2(1.5, 1)
-shape = SubResource("CircleShape2D_5iww0")
-debug_color = Color(0.898396, 0.251958, 0.721603, 0.419608)
-
 [node name="Node" type="Node" parent="Esqueleto"]
 
 [node name="HealthComponent" parent="Esqueleto/Node" node_paths=PackedStringArray("progress_bar") instance=ExtResource("6_o6yrj")]
 position = Vector2(323, 211)
 progress_bar = NodePath("../../ProgressBar")
-
-[connection signal="body_entered" from="Esqueleto/Area2D" to="Esqueleto" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Esqueleto/Area2D" to="Esqueleto" method="_on_area_2d_body_exited"]
