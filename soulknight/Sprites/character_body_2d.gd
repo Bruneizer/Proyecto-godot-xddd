@@ -2,9 +2,11 @@ class_name Heroe
 extends CharacterBody2D
 
 var move_speed: float = 100
-var is_attacking: bool = false 
+var is_attacking: bool = false
 var attack_duration: float = 0.5  # Duración de la animación de ataque
 var attack_timer: float = 0.0  # Temporizador para controlar el ataque
+
+var sprint_speed: float = 800.0  # Velocidad de sprint
 
 @onready var health_component: Node2D = $Node/HealthComponent
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D  # Nodo de animación
@@ -23,7 +25,7 @@ func get_input_direction() -> Vector2:
 		input_direction.x -= 1
 	if Input.is_action_pressed("ui_right"): # D
 		input_direction.x += 1
-	
+
 	return input_direction.normalized()
 
 func _physics_process(delta: float) -> void:
@@ -39,9 +41,13 @@ func _physics_process(delta: float) -> void:
 	var direction = get_input_direction()
 
 	if direction != Vector2.ZERO:
-		velocity = direction * speed
+		# Detectar si se está presionando la tecla de sprint
+		if Input.is_action_pressed("sprint"):
+			velocity = direction * sprint_speed
+		else:
+			velocity = direction * speed
 		move_and_slide()
-		
+
 		# Reproduce la animación de caminar si el personaje se está moviendo
 		if animated_sprite_2d.animation != "Caminar":
 			animated_sprite_2d.play("Caminar")
